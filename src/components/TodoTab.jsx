@@ -5,7 +5,21 @@ import TodoItem from "./TodoItem";
 const TodoTab = ({ todos, onTodoRemoval, onTodoToggle }) => {
   return (
     <>
-      <List></List>
+      <List
+        locale={{ emptyText: "there is nothing to do: (" }}
+        dataSource={todos}
+        renderItem={(todos) => (
+          <TodoItem
+            todo={todo}
+            onTodoToggle={onTodoToggle}
+            onTodoRemoval={onTodoRemoval}
+          />
+        )}
+        pagination={{
+          position: "bottom",
+          pageSize: 10,
+        }}
+      />
     </>
   );
 };
